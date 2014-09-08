@@ -1,7 +1,10 @@
+#   Depends on the following packages :   beatifulsoup4
+
+
 from bs4 import BeautifulSoup
 import urllib2
 import re
-
+import sys
 
 def parse(linkWithTag):
     match = re.search(r'href=[\'"]?([^\'" >]+)', linkWithTag)
@@ -35,7 +38,11 @@ def getLinks(url, links):
             continue
 
 def main():
-    url = "http://www.ticsealumni.com"
+    if len(sys.argv)==1 or len(sys.argv)>2:
+        print "Usage : crawler.py <starting_url>"
+        sys.exit()
+    else:
+        url = sys.argv[1]
     links={}
     links[url]="true"
     getLinks(url, links)
