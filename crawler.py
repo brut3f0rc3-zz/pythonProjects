@@ -1,3 +1,7 @@
+#   Uses Python 2.7
+#   Depends on bs4 module
+
+
 from bs4 import BeautifulSoup
 import urllib
 import argparse
